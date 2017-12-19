@@ -24,7 +24,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// require google auth routes and pass express server instance to routes
+// require google auth routes and pass express server instance to route
 require("./routes/auth")(app);
 
 const PORT = process.env.PORT || 5000;
