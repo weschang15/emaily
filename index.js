@@ -9,6 +9,7 @@ require("./models/User");
 // require passport configuration
 require("./services/passport");
 
+mongoose.Promise = global.Promise;
 mongoose.createConnection(keys.mongoURI);
 
 const app = express();
