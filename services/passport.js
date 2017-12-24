@@ -1,5 +1,5 @@
 const passport = require("passport");
-const GoogleStrategy = require("passport-google-oauth20");
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const mongoose = require("mongoose");
 const keys = require("../config/keys");
 
@@ -36,7 +36,7 @@ passport.use(
       callbackURL: "/auth/google/callback",
       proxy: true
     },
-    (token, refreshToken, profile, done) => {
+    (accessToken, refreshToken, profile, done) => {
       User.findOne({
         googleId: profile.id
       }).then(existingUser => {
