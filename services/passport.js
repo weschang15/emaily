@@ -3,7 +3,7 @@ const GoogleStrategy = require("passport-google-oauth20");
 const mongoose = require("mongoose");
 const keys = require("../config/keys");
 
-const User = mongoose.model("users");
+const User = require("../models/User");
 
 /**
  * Serialize the user that is passed to passport and store in session

@@ -5,12 +5,12 @@ const passport = require("passport");
 const keys = require("./config/keys");
 
 // require user models for use with mongoose (declared early so that passport can use model)
-require("./models/User");
+// require("./models/User");
 // require passport configuration
 require("./services/passport");
 
 mongoose.Promise = global.Promise;
-mongoose.createConnection(keys.mongoURI);
+mongoose.connect(keys.mongoURI);
 
 const app = express();
 
