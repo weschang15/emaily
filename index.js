@@ -9,7 +9,7 @@ require("./models/User");
 // require passport configuration
 require("./services/passport");
 
-mongoose.connect(keys.mongoURI);
+mongoose.createConnection(keys.mongoURI);
 
 const app = express();
 
