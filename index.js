@@ -16,7 +16,7 @@ const app = express();
 // allow express to make use of cookie sessions with cookie-session middleware and encrypt cookie with key
 app.use(
   cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 100,
+    maxAge: 30 * 24 * 60 * 60 * 1000,
     keys: [keys.cookieKey]
   })
 );
