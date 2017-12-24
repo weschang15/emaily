@@ -5,7 +5,7 @@ const passport = require("passport");
 const keys = require("./config/keys");
 
 // require user models for use with mongoose (declared early so that passport can use model)
-require("./models/User");
+// require("./models/User");
 // require passport configuration
 require("./services/passport");
 
