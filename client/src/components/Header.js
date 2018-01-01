@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import Payments from "./Payments";
 
 class Header extends Component {
   renderContent = () => {
@@ -14,11 +15,17 @@ class Header extends Component {
           </li>
         );
       default:
-        return (
-          <li>
+        return [
+          <li key="1">
+            <Payments />
+          </li>,
+          <li key="2" style={{ margin: "0 10px" }}>
+            Credits: {this.props.auth.credits}
+          </li>,
+          <li key="3">
             <a href="/api/logout">Logout</a>
           </li>
-        );
+        ];
     }
   };
 
@@ -27,13 +34,14 @@ class Header extends Component {
       <nav>
         <div className="nav-wrapper">
           <Link to={this.props.auth ? "/surveys" : "/"}>Emaily</Link>
-          <ul className="right hide-on-med-and-down">{this.renderContent()}</ul>
+          <ul className="right">{this.renderContent()}</ul>
         </div>
       </nav>
     );
   };
 }
 
+// Convert global state object into props that are available to this component
 function mapStateToProps({ auth }) {
   return { auth };
 }
