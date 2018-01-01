@@ -4,8 +4,6 @@ const cookieSession = require("cookie-session");
 const passport = require("passport");
 const keys = require("./config/keys");
 
-// require user models for use with mongoose (declared early so that passport can use model)
-// require("./models/User");
 // require passport configuration
 require("./services/passport");
 
@@ -26,7 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // require google auth routes and pass express server instance to routes
-require("./routes/auth")(app);
+app.use(require("./routes/auth"));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
