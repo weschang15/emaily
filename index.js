@@ -31,6 +31,8 @@ app.use(passport.session());
 app.use(require("./routes/auth"));
 // require routes for billing process
 app.use(require("./routes/billing"));
+// require routes for surveys
+app.use(require("./routes/survey"));
 
 // ensure that express serves our react build bundle in production
 if (process.env.NODE_ENV === "production") {
