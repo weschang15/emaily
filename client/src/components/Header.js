@@ -31,10 +31,17 @@ class Header extends Component {
 
   render = () => {
     return (
-      <nav>
+      <nav className="row">
         <div className="nav-wrapper">
-          <Link to={this.props.auth ? "/surveys" : "/"}>this.mail</Link>
-          <ul className="right">{this.renderContent()}</ul>
+          <div className="col s12">
+            <Link
+              to={this.props.auth ? "/surveys" : "/"}
+              className="brand-logo"
+            >
+              this.mail
+            </Link>
+            <ul className="right">{this.renderContent()}</ul>
+          </div>
         </div>
       </nav>
     );
